@@ -2,21 +2,19 @@ import { useState, useEffect } from "react"
 
 const ControlPresupuesto = ({gastos, presupuesto}) => {
 
-    const [disponible, setDisponible] = useState(0)
+    const [disponible, setDisponible] = useState(presupuesto)
 
     useEffect(() => {
-        
         const totalDisponible = gastos.reduce((total, gasto) => {
-            if(gastos.categoria === 'ingreso') {
-                return total + gasto.cantidad
-            }else {
-                return total - gasto.cantidad
-            }
-        }, 0)
-
-      setDisponible(totalDisponible)
-      
-    }, [gastos])
+          if (gasto.categoria === 'ingreso') {
+            return total + gasto.cantidad;
+          } else {
+            return total - gasto.cantidad;
+          }
+        }, presupuesto);
+    
+        setDisponible(totalDisponible);
+      }, [gastos, presupuesto]);
     
     
 
@@ -35,11 +33,11 @@ const ControlPresupuesto = ({gastos, presupuesto}) => {
 
         <div className="contenido-presupuesto">
             <p>
-                <span>Presupuesto: </span>{formatearCantidad(presupuesto)}
+                <span>Presupuesto Inicial: </span>{formatearCantidad(presupuesto)}
             </p>
 
             <p>
-                <span>Disponible: </span>{formatearCantidad(disponible)}
+                <span>Presupuesto Disponible: </span>{formatearCantidad(disponible)}
             </p>
         </div>
     </div>
