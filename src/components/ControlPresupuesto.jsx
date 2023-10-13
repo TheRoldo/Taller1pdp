@@ -27,9 +27,6 @@ const ControlPresupuesto = ({gastos, presupuesto}) => {
 
   return (
     <div className="contenedor-presupuesto contenedor sombra dos-columnas">
-        <div>
-            <p>Grafica aqui</p>
-        </div>
 
         <div className="contenido-presupuesto">
             <p>

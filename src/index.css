@@ -409,3 +409,12 @@ body .modal {
   font-size: 2.4rem;
   text-align: right;
 }
+
+/*** Filtros ***/
+.barra {
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: var(--gris-claro);
+}
